@@ -2,63 +2,31 @@ package org.etech.etechmobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import org.etech.etechmobile.entidades.Usuario;
-import org.etech.etechmobile.services.IUsuarioService;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import org.etech.etechmobile.databinding.ActivityMainBinding;
+import org.etech.etechmobile.services.UsuarioService;
 
 public class MainActivity extends AppCompatActivity {
+
+    private UsuarioService usuarioService;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Gson gson = new GsonBuilder()
-
-                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-
-                .create();
-
-
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:5169/api/")
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        IUsuarioService usuarioService = retrofit.create(IUsuarioService.class);
-
-        Usuario usuario = new Usuario();
-
-        usuario.setLogin("testeAndroid");
-        usuario.setSenha("testeAndroid");
-        usuario.setNome("testeAndroid");
-        usuario.setCpf("00000000000");
-
-        Call<Usuario> call = usuarioService.criaUsuario(usuario);
-
-        call.enqueue(new Callback<Usuario>() {
-            @Override
-            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                System.out.println(response.body().toString());
-            }
-
-            @Override
-            public void onFailure(Call<Usuario> call, Throwable t) {
-                t.printStackTrace();
-                System.out.println("nao deu");
-            }
-        });
-
+        usuarioService = new UsuarioService();
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        SharedPreferences sharedPreferences = getSharedPreferences("loginPrefs", 0);
+        int idUsuario = sharedPreferences.getInt("idUsuario", 0);
+        if(idUsuario == 0) {
+            //leva pro login
+        } else {
+            //leva para a loja
+        }
     }
+
+
 }
