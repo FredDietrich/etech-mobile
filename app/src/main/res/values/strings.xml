@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">Etech Mobile</string>
     <string name="title_activity_login">Etech - Login</string>
-    <string name="prompt_email">Login</string>
-    <string name="prompt_password">Senha</string>
-    <string name="action_sign_in">Login</string>
-    <string name="action_sign_in_short">Login</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Não é um login válido!</string>
     <string name="invalid_password">Senha deve conter pelo menos 8 caracteres!</string>
     <string name="login_failed">Login falhou</string>
+    <string name="description_logo">Headset utilizado para logotipo da marca</string>
+    <string name="usuario">Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="login_prefs_key">loginPrefs</string>
+    <string name="id_usuario_key">idUsuario</string>
+    <string name="login_usuario_key">loginUsuario</string>
+    <string name="senha_usuario_key">senhaUsuario</string>
 </resources>
