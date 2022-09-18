@@ -2,6 +2,7 @@ package org.etech.etechmobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -19,12 +20,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         usuarioService = new UsuarioService();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        SharedPreferences sharedPreferences = getSharedPreferences("loginPrefs", 0);
-        int idUsuario = sharedPreferences.getInt("idUsuario", 0);
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.login_prefs_key), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(getString(R.string.id_usuario_key), 1);
+        editor.apply();
+        int idUsuario = sharedPreferences.getInt(getString(R.string.id_usuario_key), 0);
         if(idUsuario == 0) {
-            //leva pro login
+            System.out.println("oi");
         } else {
-            //leva para a loja
+            System.out.println("ta logado");
         }
     }
 

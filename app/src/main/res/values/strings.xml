@@ -8,4 +8,8 @@
     <string name="description_logo">Headset utilizado para logotipo da marca</string>
     <string name="usuario">Usuário</string>
     <string name="senha">Senha</string>
+    <string name="login_prefs_key">loginPrefs</string>
+    <string name="id_usuario_key">idUsuario</string>
+    <string name="login_usuario_key">loginUsuario</string>
+    <string name="senha_usuario_key">senhaUsuario</string>
 </resources>
