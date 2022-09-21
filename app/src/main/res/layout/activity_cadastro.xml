@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".CadastroActivity">
 
     <View
         android:id="@+id/header"
@@ -56,8 +56,29 @@
         app:layout_constraintTop_toTopOf="@id/containerComponents"
         tools:ignore="TextContrastCheck"
         android:inputType="text"
-        android:autofillHints="username"
-        android:layout_marginTop="90dp"/>
+        android:autofillHints="username" />
+
+    <EditText
+        android:id="@+id/edit_nome"
+        style="@style/EditText"
+        android:hint="@string/nome_completo"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/edit_usuario"
+        tools:ignore="TextContrastCheck"
+        android:inputType="text"
+        android:autofillHints="name" />
+
+    <EditText
+        android:id="@+id/edit_cpf"
+        style="@style/EditText"
+        android:hint="@string/cpf"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/edit_nome"
+        tools:ignore="TextContrastCheck"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/edit_senha"
@@ -67,22 +88,33 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@id/containerComponents"
         app:layout_constraintStart_toStartOf="@id/containerComponents"
-        app:layout_constraintTop_toBottomOf="@id/edit_usuario"
+        app:layout_constraintTop_toBottomOf="@id/edit_cpf"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/edit_repitasenha"
+        style="@style/EditText"
+        android:autofillHints="password"
+        android:hint="Repita sua senha"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/edit_senha"
         tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_login"
+        android:id="@+id/bt_cadastro"
         style="@style/Button_main"
-        android:text="@string/login"
+        android:text="@string/criar_conta"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bt_loginaux" />
+        app:layout_constraintBottom_toTopOf="@id/bt_cadastroaux" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_loginaux"
+        android:id="@+id/bt_cadastroaux"
         style="@style/Button_aux"
-        android:text="@string/criar_conta"
+        android:text="@string/ja_tem_conta"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
