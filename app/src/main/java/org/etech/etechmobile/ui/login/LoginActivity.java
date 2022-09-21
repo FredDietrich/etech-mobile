@@ -5,6 +5,9 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -18,13 +21,12 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.etech.etechmobile.MainActivity;
 import org.etech.etechmobile.R;
-import org.etech.etechmobile.ui.login.LoginViewModel;
-import org.etech.etechmobile.ui.login.LoginViewModelFactory;
+import org.etech.etechmobile.ui.cadastro.CadastroActivity;
 import org.etech.etechmobile.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
@@ -44,8 +46,8 @@ public class LoginActivity extends AppCompatActivity {
 
         final EditText usernameEditText = binding.editUsuario;
         final EditText passwordEditText = binding.editSenha;
-        //final Button loginButton = binding.;
-        //final ProgressBar loadingProgressBar = binding.loading;
+        final Button loginButton = binding.btLogin;
+        final Button cadastroButton = binding.btLoginaux;
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -53,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (loginFormState == null) {
                     return;
                 }
-//                loginButton.setEnabled(loginFormState.isDataValid());
+                loginButton.setEnabled(loginFormState.isDataValid());
                 if (loginFormState.getUsernameError() != null) {
                     usernameEditText.setError(getString(loginFormState.getUsernameError()));
                 }
@@ -69,17 +71,17 @@ public class LoginActivity extends AppCompatActivity {
                 if (loginResult == null) {
                     return;
                 }
-//                loadingProgressBar.setVisibility(View.GONE);
                 if (loginResult.getError() != null) {
                     showLoginFailed(loginResult.getError());
                 }
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
                 }
+                SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.login_prefs_key), Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt(getString(R.string.id_usuario_key), loginResult.getSuccess().getUsuarioLogado().getIdUsuario());
+                editor.apply();
                 setResult(Activity.RESULT_OK);
-
-                //Complete and destroy login activity once successful
-                finish();
             }
         });
 
@@ -107,30 +109,44 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    loginViewModel.login(usernameEditText.getText().toString(),
+                    loginViewModel.login(getApplicationContext(),
+                            usernameEditText.getText().toString(),
                             passwordEditText.getText().toString());
                 }
                 return false;
             }
         });
 
-//        loginButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                loadingProgressBar.setVisibility(View.VISIBLE);
-//                loginViewModel.login(usernameEditText.getText().toString(),
-//                        passwordEditText.getText().toString());
-//            }
-//        });
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginViewModel.login(getApplicationContext(),
+                        usernameEditText.getText().toString(),
+                        passwordEditText.getText().toString());
+            }
+        });
+
+        cadastroButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vaiProCadastro();
+            }
+        });
+
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
-        // TODO : initiate successful logged in experience
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
+    private void vaiProCadastro() {
+        Intent intent = new Intent(this, CadastroActivity.class);
+        startActivity(intent);
+    }
+
 }

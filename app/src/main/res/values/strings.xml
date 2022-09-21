@@ -18,4 +18,8 @@
     <string name="ja_tem_conta">JÁ TEM UMA CONTA?\nCLIQUE AQUI</string>
     <string name="nome_completo">Nome Completo</string>
     <string name="cpf">CPF</string>
+    <string name="cpf_error">O CPF deve conter 11 dígitos!</string>
+    <string name="name_error">O nome precisa ser inserido!</string>
+    <string name="different_passwords">As senhas precisam ser iguais!</string>
+    <string name="cadastro_failed">O cadastro falhou!</string>
 </resources>

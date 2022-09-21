@@ -1,5 +1,7 @@
 package org.etech.etechmobile.services;
 
+import android.content.Context;
+
 import org.etech.etechmobile.entidades.Compra;
 import org.etech.etechmobile.helper.RetrofitFactory;
 
@@ -15,7 +17,13 @@ import retrofit2.http.Path;
 
 public class CompraService {
 
-    private Retrofit retrofit = RetrofitFactory.getInstance().getRetrofit();
+    private Context context;
+
+    public CompraService(Context context) {
+        this.context = context;
+    }
+
+    private Retrofit retrofit = RetrofitFactory.getInstance(context).getRetrofit();
 
     ICompraService compraService = retrofit.create(ICompraService.class);
 

@@ -1,7 +1,13 @@
 package org.etech.etechmobile.helper;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.view.View;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import org.etech.etechmobile.R;
 
 import java.io.IOException;
 
@@ -17,25 +23,28 @@ public class RetrofitFactory {
 
     private static RetrofitFactory instance;
 
-    private Gson gson = new GsonBuilder()
-            .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-            .create();
+    private Retrofit retrofit;
 
-    private OkHttpClient client = new OkHttpClient.Builder()
-            .addInterceptor(new BasicAuthInterceptor("admin", "admin"))
-            .build();
+    private RetrofitFactory(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.login_prefs_key), Context.MODE_PRIVATE);
+        String usuario = sharedPreferences.getString(context.getString(R.string.login_usuario_key), "");
+        String senha = sharedPreferences.getString(context.getString(R.string.senha_usuario_key), "");
+        Gson gson = new GsonBuilder()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+                .create();
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(new BasicAuthInterceptor(usuario, senha))
+                .build();
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:5169/api/")
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(client)
+                .build();
+    }
 
-    private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:5169/api/")
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .client(client)
-            .build();
-
-    private RetrofitFactory() {}
-
-    public static synchronized RetrofitFactory getInstance() {
+    public static synchronized RetrofitFactory getInstance(Context context) {
         if(instance == null) {
-            instance = new RetrofitFactory();
+            instance = new RetrofitFactory(context);
         }
         return instance;
     }

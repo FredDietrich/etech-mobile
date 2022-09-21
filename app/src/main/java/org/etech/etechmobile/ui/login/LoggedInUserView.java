@@ -1,17 +1,17 @@
 package org.etech.etechmobile.ui.login;
 
+import org.etech.etechmobile.entidades.Usuario;
+
 /**
  * Class exposing authenticated user details to the UI.
  */
 class LoggedInUserView {
-    private String displayName;
-    //... other data fields that may be accessible to the UI
-
-    LoggedInUserView(String displayName) {
-        this.displayName = displayName;
+    private Usuario usuarioLogado;
+    LoggedInUserView(Usuario usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
     }
 
-    String getDisplayName() {
-        return displayName;
+    Usuario getUsuarioLogado() {
+        return usuarioLogado;
     }
 }

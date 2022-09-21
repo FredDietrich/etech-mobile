@@ -1,5 +1,7 @@
 package org.etech.etechmobile.services;
 
+import android.content.Context;
+
 import org.etech.etechmobile.entidades.Produto;
 import org.etech.etechmobile.helper.RetrofitFactory;
 
@@ -15,7 +17,13 @@ import retrofit2.http.Path;
 
 public class ProdutoService {
 
-     private Retrofit retrofit = RetrofitFactory.getInstance().getRetrofit();
+     private Context context;
+
+     public ProdutoService(Context context) {
+          this.context = context;
+     }
+
+     private Retrofit retrofit = RetrofitFactory.getInstance(context).getRetrofit();
 
      IProdutoService produtoService = retrofit.create(IProdutoService.class);
 

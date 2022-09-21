@@ -4,22 +4,22 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import android.content.Context;
 import android.util.Patterns;
 
-import org.etech.etechmobile.data.LoginRepository;
-import org.etech.etechmobile.data.Result;
-import org.etech.etechmobile.data.model.LoggedInUser;
 import org.etech.etechmobile.R;
+import org.etech.etechmobile.entidades.Autenticacao;
+import org.etech.etechmobile.entidades.Usuario;
+import org.etech.etechmobile.services.UsuarioService;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginViewModel extends ViewModel {
 
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
-    private LoginRepository loginRepository;
-
-    LoginViewModel(LoginRepository loginRepository) {
-        this.loginRepository = loginRepository;
-    }
 
     LiveData<LoginFormState> getLoginFormState() {
         return loginFormState;
@@ -29,16 +29,24 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
-    public void login(String username, String password) {
-        // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(username, password);
+    public void login(Context context, String username, String password) {
+        new UsuarioService(context).autentica(new Autenticacao().login(username).senha(password), new Callback<Usuario>() {
+            @Override
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                if(response.body() != null) {
+                    System.out.println(response.body());
+                    Usuario data = response.body();
+                    loginResult.setValue(new LoginResult(new LoggedInUserView(data)));
+                } else {
+                    loginResult.setValue(new LoginResult(R.string.login_failed));
+                }
+            }
 
-        if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
-            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
-        } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
-        }
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {
+                loginResult.setValue(new LoginResult(R.string.login_failed));
+            }
+        });
     }
 
     public void loginDataChanged(String username, String password) {
@@ -51,20 +59,11 @@ public class LoginViewModel extends ViewModel {
         }
     }
 
-    // A placeholder username validation check
     private boolean isUserNameValid(String username) {
-        if (username == null) {
-            return false;
-        }
-        if (username.contains("@")) {
-            return Patterns.EMAIL_ADDRESS.matcher(username).matches();
-        } else {
-            return !username.trim().isEmpty();
-        }
+        return username != null && username.trim().length() >= 4;
     }
 
-    // A placeholder password validation check
     private boolean isPasswordValid(String password) {
-        return password != null && password.trim().length() > 5;
+        return password != null && password.trim().length() >= 4;
     }
 }

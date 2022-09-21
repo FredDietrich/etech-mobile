@@ -1,5 +1,7 @@
 package org.etech.etechmobile.services;
 
+import android.content.Context;
+
 import org.etech.etechmobile.entidades.Autenticacao;
 import org.etech.etechmobile.entidades.Usuario;
 import org.etech.etechmobile.helper.RetrofitFactory;
@@ -16,12 +18,27 @@ import retrofit2.http.Path;
 
 public class UsuarioService {
 
-    private Retrofit retrofit = RetrofitFactory.getInstance().getRetrofit();
+    private IUsuarioService usuarioService;
 
-    IUsuarioService usuarioService = retrofit.create(IUsuarioService.class);
+    public UsuarioService(Context context) {
+        usuarioService = RetrofitFactory
+                .getInstance(context)
+                .getRetrofit()
+                .create(IUsuarioService.class);
+    }
 
     public void getUsuarios(Callback<List<Usuario>> usuarioCallBack) {
         Call<List<Usuario>> call = usuarioService.getUsuarios();
+        call.enqueue(usuarioCallBack);
+    }
+
+    public void autentica(Autenticacao autenticacao, Callback<Usuario> usuarioCallback) {
+        Call<Usuario> call = usuarioService.autenticaUsuario(autenticacao);
+        call.enqueue(usuarioCallback);
+    }
+
+    public void criaUsuario(Usuario usuario, Callback<Usuario> usuarioCallBack) {
+        Call<Usuario> call = usuarioService.criaUsuario(usuario);
         call.enqueue(usuarioCallBack);
     }
 
