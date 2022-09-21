@@ -15,4 +15,7 @@
     <string name="login">LOGIN</string>
     <string name="header_text">E-TECH\nA sua loja de Acessórios Eletônicos</string>
     <string name="criar_conta">CRIAR CONTA</string>
+    <string name="ja_tem_conta">JÁ TEM UMA CONTA?\nCLIQUE AQUI</string>
+    <string name="nome_completo">Nome Completo</string>
+    <string name="cpf">CPF</string>
 </resources>

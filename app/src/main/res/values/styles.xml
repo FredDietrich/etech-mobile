@@ -27,17 +27,17 @@
     <style name="EditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">20dp</item>
+        <item name="android:padding">12dp</item>
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:layout_marginRight">40dp</item>
-        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginTop">10dp</item>
     </style>
 
-    <style name="Button">
-        <item name="android:layout_width">150dp</item>
+    <style name="Button_main">
+        <item name="android:layout_width">160dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">50dp</item>
-        <item name="android:padding">20dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:padding">10dp</item>
         <item name="android:background">@drawable/button</item>
         <item name="android:elevation">15dp</item>
     </style>
@@ -45,7 +45,8 @@
     <style name="Button_aux">
         <item name="android:layout_width">130dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:padding">10dp</item>
         <item name="android:background">@drawable/button2</item>
         <item name="android:elevation">15dp</item>
     </style>
