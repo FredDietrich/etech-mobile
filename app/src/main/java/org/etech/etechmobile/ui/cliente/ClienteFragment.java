@@ -1,4 +1,4 @@
-package org.etech.etechmobile.ui.notifications;
+package org.etech.etechmobile.ui.cliente;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import org.etech.etechmobile.databinding.FragmentNotificationsBinding;
+import org.etech.etechmobile.databinding.FragmentClienteBinding;
 
-public class NotificationsFragment extends Fragment {
+public class ClienteFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+    private FragmentClienteBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        ClienteViewModel clienteViewModel =
+                new ViewModelProvider(this).get(ClienteViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentClienteBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        clienteViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

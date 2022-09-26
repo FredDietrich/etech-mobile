@@ -80,6 +80,8 @@ public class LoginActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.login_prefs_key), Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt(getString(R.string.id_usuario_key), loginResult.getSuccess().getUsuarioLogado().getIdUsuario());
+                editor.putString(getString(R.string.login_usuario_key), loginResult.getSuccess().getUsuarioLogado().getLogin());
+                editor.putString(getString(R.string.senha_usuario_key), loginResult.getSuccess().getUsuarioLogado().getSenha());
                 editor.apply();
                 setResult(Activity.RESULT_OK);
             }

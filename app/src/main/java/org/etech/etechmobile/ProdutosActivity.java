@@ -10,22 +10,20 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import org.etech.etechmobile.databinding.ActivityProdutosBinding;
+import org.etech.etechmobile.databinding.ActivityLojaBinding;
 
 public class ProdutosActivity extends AppCompatActivity {
 
-    private ActivityProdutosBinding binding;
+    private ActivityLojaBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityProdutosBinding.inflate(getLayoutInflater());
+        binding = ActivityLojaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_produtos, R.id.navigation_carrinho, R.id.navigation_cliente)
                 .build();

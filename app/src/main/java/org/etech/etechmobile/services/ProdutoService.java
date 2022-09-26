@@ -9,7 +9,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Retrofit;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -17,15 +16,14 @@ import retrofit2.http.Path;
 
 public class ProdutoService {
 
-     private Context context;
+     private IProdutoService produtoService;
 
      public ProdutoService(Context context) {
-          this.context = context;
+          this.produtoService = RetrofitFactory
+                  .getInstance(context)
+                  .getRetrofit()
+                  .create(IProdutoService.class);
      }
-
-     private Retrofit retrofit = RetrofitFactory.getInstance(context).getRetrofit();
-
-     IProdutoService produtoService = retrofit.create(IProdutoService.class);
 
      public void getProdutos(Callback<List<Produto>> produtoCallBack) {
          Call<List<Produto>> call = produtoService.getProdutos();

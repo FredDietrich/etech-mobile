@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         if(idUsuario == 0) {
             vaiProLogin();
         } else {
-            System.out.println("ta logado, loja WIP");
+            vaiPraLoja();
         }
 
         binding.botaovaiprologin.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void vaiProLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    private void vaiPraLoja() {
+        Intent intent = new Intent(this, ProdutosActivity.class);
         startActivity(intent);
     }
 

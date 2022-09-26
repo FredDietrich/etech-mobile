@@ -1,14 +1,14 @@
-package org.etech.etechmobile.ui.dashboard;
+package org.etech.etechmobile.ui.carrinho;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class CarrinhoViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public CarrinhoViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is dashboard fragment");
     }

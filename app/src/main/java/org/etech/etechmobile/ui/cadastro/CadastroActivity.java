@@ -146,7 +146,6 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
     private void cadastra(String username, String name, String cpf, String password) {
-        System.out.println("AQUI AINDA DEU" + getApplicationContext());
         cadastroViewModel.cadastro(getApplicationContext(), username, name, cpf, password);
     }
 
