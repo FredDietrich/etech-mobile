@@ -7,19 +7,28 @@
 
     <fragment
         android:id="@+id/navigation_produtos"
-        android:name="org.etech.etechmobile.ui.home.HomeFragment"
+        android:name="org.etech.etechmobile.ui.produtos.ProdutosFragment"
         android:label="@string/titulo_produtos"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_produtos" >
+        <action
+            android:id="@+id/action_navigation_produtos_to_produtoFragment"
+            app:destination="@id/produtoFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_carrinho"
-        android:name="org.etech.etechmobile.ui.dashboard.DashboardFragment"
+        android:name="org.etech.etechmobile.ui.carrinho.CarrinhoFragment"
         android:label="@string/titulo_carrinho"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_carrinho" />
 
     <fragment
         android:id="@+id/navigation_cliente"
-        android:name="org.etech.etechmobile.ui.notifications.NotificationsFragment"
+        android:name="org.etech.etechmobile.ui.cliente.ClienteFragment"
         android:label="@string/titulo_cliente"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_cliente" />
+    <fragment
+        android:id="@+id/produtoFragment"
+        android:name="org.etech.etechmobile.ui.produto.ProdutoFragment"
+        android:label="fragment_produto"
+        tools:layout="@layout/fragment_produto" />
 </navigation>

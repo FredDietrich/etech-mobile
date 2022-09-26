@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent" >
+
+    <TextView
+
+        android:id="@+id/nome"
+
+        android:layout_width="83dp"
+
+        android:layout_height="58dp"
+
+        android:text="nome" />
+
+    <TextView
+
+        android:id="@+id/preco"
+
+        android:layout_width="79dp"
+
+        android:layout_height="57dp"
+
+        android:text="preco" />
+
+</LinearLayout>

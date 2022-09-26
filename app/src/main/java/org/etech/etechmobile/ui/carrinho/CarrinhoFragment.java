@@ -1,4 +1,4 @@
-package org.etech.etechmobile.ui.dashboard;
+package org.etech.etechmobile.ui.carrinho;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,23 +9,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import org.etech.etechmobile.databinding.FragmentCarrinhoBinding;
 
-import org.etech.etechmobile.databinding.FragmentDashboardBinding;
+public class CarrinhoFragment extends Fragment {
 
-public class DashboardFragment extends Fragment {
-
-    private FragmentDashboardBinding binding;
+    private org.etech.etechmobile.databinding.FragmentCarrinhoBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        CarrinhoViewModel carrinhoViewModel =
+                new ViewModelProvider(this).get(CarrinhoViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = org.etech.etechmobile.databinding.FragmentCarrinhoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        carrinhoViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

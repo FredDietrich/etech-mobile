@@ -33,12 +33,10 @@ public class CadastroViewModel extends ViewModel {
         novoUsuario.setNome(name);
         novoUsuario.setCpf(cpf);
         novoUsuario.setSenha(password);
-        System.out.println("AQUI AINDA DEU" + context);
         new UsuarioService(context).criaUsuario(novoUsuario, new Callback<Usuario>() {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 if(response.body() != null) {
-                    System.out.println(response.body());
                     Usuario data = response.body();
                     cadastroResult.setValue(new CadastroResult(data.getNome()));
                 } else {
@@ -48,6 +46,7 @@ public class CadastroViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<Usuario> call, Throwable t) {
+                t.printStackTrace();
                 cadastroResult.setValue(new CadastroResult(R.string.cadastro_failed));
             }
         });
@@ -81,7 +80,6 @@ public class CadastroViewModel extends ViewModel {
         if(password == null || password.trim() == "") {
             return true;
         }
-        System.out.println(password + "asasasa" + secondPassword);
         return password.trim().equals(secondPassword.trim());
     }
 

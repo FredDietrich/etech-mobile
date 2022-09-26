@@ -34,7 +34,6 @@ public class LoginViewModel extends ViewModel {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 if(response.body() != null) {
-                    System.out.println(response.body());
                     Usuario data = response.body();
                     loginResult.setValue(new LoginResult(new LoggedInUserView(data)));
                 } else {
