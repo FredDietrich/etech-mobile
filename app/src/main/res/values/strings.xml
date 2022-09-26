@@ -22,4 +22,7 @@
     <string name="name_error">O nome precisa ser inserido!</string>
     <string name="different_passwords">As senhas precisam ser iguais!</string>
     <string name="cadastro_failed">O cadastro falhou!</string>
+    <string name="titulo_produtos">Produtos</string>
+    <string name="titulo_carrinho">Carrinho</string>
+    <string name="titulo_cliente">Minha conta</string>
 </resources>

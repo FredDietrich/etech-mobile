@@ -23,7 +23,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.etech.etechmobile.databinding.ActivityCadastroBinding;
-import org.etech.etechmobile.helper.ClientAuthStore;
 import org.etech.etechmobile.ui.login.LoginActivity;
 
 public class CadastroActivity extends AppCompatActivity {
@@ -37,8 +36,6 @@ public class CadastroActivity extends AppCompatActivity {
 
         binding = ActivityCadastroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        System.out.println(new ClientAuthStore(getApplicationContext()).getCurrentUserId() + "aqui");
 
         cadastroViewModel = new ViewModelProvider(this, new CadastroViewModelFactory())
                 .get(CadastroViewModel.class);

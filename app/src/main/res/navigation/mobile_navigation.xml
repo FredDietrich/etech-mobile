@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_produtos">
+
+    <fragment
+        android:id="@+id/navigation_produtos"
+        android:name="org.etech.etechmobile.ui.home.HomeFragment"
+        android:label="@string/titulo_produtos"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_carrinho"
+        android:name="org.etech.etechmobile.ui.dashboard.DashboardFragment"
+        android:label="@string/titulo_carrinho"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_cliente"
+        android:name="org.etech.etechmobile.ui.notifications.NotificationsFragment"
+        android:label="@string/titulo_cliente"
+        tools:layout="@layout/fragment_notifications" />
+</navigation>

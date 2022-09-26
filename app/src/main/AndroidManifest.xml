@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="org.etech.etechmobile">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -16,6 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EtechMobile"
         tools:targetApi="31">
+        <activity
+            android:name=".ProdutosActivity"
+            android:exported="false"
+            android:label="@string/titulo_produtos" />
         <activity
             android:name=".ui.cadastro.CadastroActivity"
             android:exported="false" />
