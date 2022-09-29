@@ -24,8 +24,8 @@ public class ProdutosAdapter extends ArrayAdapter<Produto> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_produto, parent, false);
         }
-        TextView nome = convertView.findViewById(R.id.nome);
-        TextView preco = convertView.findViewById(R.id.preco);
+        TextView nome = convertView.findViewById(R.id.nomeProduto);
+        TextView preco = convertView.findViewById(R.id.precoProduto);
         nome.setText(produto.getTitulo());
         preco.setText(Double.toString(produto.getPreco()));
         return convertView;
