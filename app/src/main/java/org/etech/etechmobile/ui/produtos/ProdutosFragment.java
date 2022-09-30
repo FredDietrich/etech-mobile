@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,7 +32,7 @@ public class ProdutosFragment extends Fragment {
         binding = FragmentProdutosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final GridView listaProdutos = binding.listaProdutos;
+        final ListView listaProdutos = binding.listaProdutos;
         produtosViewModel.carregaProdutos(getContext());
         produtosViewModel.getProdutos().observe(getViewLifecycleOwner(), produtos -> listaProdutos.setAdapter(criaAdapter(produtos)));
         return root;

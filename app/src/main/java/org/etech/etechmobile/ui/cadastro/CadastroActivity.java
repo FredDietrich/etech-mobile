@@ -32,6 +32,9 @@ public class CadastroActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+        getSupportActionBar().hide();
+
         super.onCreate(savedInstanceState);
 
         binding = ActivityCadastroBinding.inflate(getLayoutInflater());

@@ -21,6 +21,9 @@ public class ProdutosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        getSupportActionBar().hide();
+
         super.onCreate(savedInstanceState);
 
         binding = ActivityLojaBinding.inflate(getLayoutInflater());
