@@ -15,6 +15,7 @@ import android.widget.EditText;
 import org.etech.etechmobile.databinding.ActivityMainBinding;
 import org.etech.etechmobile.services.UsuarioService;
 import org.etech.etechmobile.ui.login.LoginActivity;
+import org.etech.etechmobile.ui.produto.ProdutoFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
         usuarioService = new UsuarioService(getApplicationContext());
         setContentView(binding.getRoot());
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.login_prefs_key), Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(getString(R.string.id_usuario_key), 1);
-        editor.apply();
         int idUsuario = sharedPreferences.getInt(getString(R.string.id_usuario_key), 0);
         if(idUsuario == 0) {
             vaiProLogin();
