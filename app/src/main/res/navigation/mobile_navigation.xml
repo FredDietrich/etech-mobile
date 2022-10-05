@@ -30,5 +30,5 @@
         android:id="@+id/produtoFragment"
         android:name="org.etech.etechmobile.ui.produto.ProdutoFragment"
         android:label="fragment_produto"
-        tools:layout="@layout/fragment_produto" />
+        tools:layout="@layout/fragment_detalheproduto" />
 </navigation>

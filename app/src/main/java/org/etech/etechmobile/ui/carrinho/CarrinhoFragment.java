@@ -23,7 +23,8 @@ public class CarrinhoFragment extends Fragment {
         binding = org.etech.etechmobile.databinding.FragmentCarrinhoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
+        // TODO: Alan: Quando ajustei o fragment_carrinho.xml quebrou aqui :(. Acho que foi por ter alterado pra ListView
+        final TextView textView = binding.listaCarrinho;
         carrinhoViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

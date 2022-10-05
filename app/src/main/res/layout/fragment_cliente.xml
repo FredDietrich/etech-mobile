@@ -4,19 +4,168 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".ui.cliente.ClienteFragment">
 
-    <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <View
+        android:id="@+id/header"
+        style="@style/Header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/header_text"
+        style="@style/Header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/header_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
+        android:gravity="center_horizontal|center_vertical"
+        />
+
+    <View
+        android:id="@+id/cliente"
+        style="@style/ClienteComponents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        />
+
+    <ImageView
+        android:id="@+id/img_usuario"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/usuario"
+        app:layout_constraintStart_toStartOf="@id/cliente"
+        app:layout_constraintTop_toTopOf="@id/cliente"
+        app:layout_constraintBottom_toBottomOf="@id/cliente"
+        />
+
+    <TextView
+        android:id="@+id/nomeUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome Usuario"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/img_usuario"
+        app:layout_constraintEnd_toEndOf="@id/cliente"
+        app:layout_constraintTop_toTopOf="@id/cliente"
+        app:layout_constraintBottom_toTopOf="@id/loginUsuario"
+        />
+
+    <TextView
+        android:id="@+id/loginUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login Usuario"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/img_usuario"
+        app:layout_constraintEnd_toEndOf="@id/cliente"
+        app:layout_constraintTop_toBottomOf="@id/nomeUsuario"
+        app:layout_constraintBottom_toBottomOf="@id/cliente"
+        />
+
+    <View
+        android:id="@+id/minhasCompras"
+        style="@style/ClienteComponents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cliente"
+        />
+
+    <ImageView
+        android:id="@+id/img_minhasCompras"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/minhas_compras"
+        app:layout_constraintStart_toStartOf="@id/minhasCompras"
+        app:layout_constraintTop_toTopOf="@id/minhasCompras"
+        app:layout_constraintBottom_toBottomOf="@id/minhasCompras"
+        />
+
+    <TextView
+        android:id="@+id/label_minhasCompras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minhas Compras"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/img_minhasCompras"
+        app:layout_constraintEnd_toEndOf="@id/minhasCompras"
+        app:layout_constraintTop_toTopOf="@id/minhasCompras"
+        app:layout_constraintBottom_toBottomOf="@id/minhasCompras"
+        />
+
+    <View
+        android:id="@+id/favoritos"
+        style="@style/ClienteComponents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/minhasCompras"
+        />
+
+    <ImageView
+        android:id="@+id/img_favoritos"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/favorito"
+        app:layout_constraintStart_toStartOf="@id/favoritos"
+        app:layout_constraintTop_toTopOf="@id/favoritos"
+        app:layout_constraintBottom_toBottomOf="@id/favoritos"
+        />
+
+    <TextView
+        android:id="@+id/label_favoritos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favoritos"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/img_favoritos"
+        app:layout_constraintEnd_toEndOf="@id/favoritos"
+        app:layout_constraintTop_toTopOf="@id/favoritos"
+        app:layout_constraintBottom_toBottomOf="@id/favoritos"
+        />
+
+    <View
+        android:id="@+id/sair"
+        style="@style/ClienteComponents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/img_sair"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/sair"
+        app:layout_constraintStart_toStartOf="@id/sair"
+        app:layout_constraintTop_toTopOf="@id/sair"
+        app:layout_constraintBottom_toBottomOf="@id/sair"
+        />
+
+    <TextView
+        android:id="@+id/label_sair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sair"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/img_sair"
+        app:layout_constraintEnd_toEndOf="@id/sair"
+        app:layout_constraintTop_toTopOf="@id/sair"
+        app:layout_constraintBottom_toBottomOf="@id/sair"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

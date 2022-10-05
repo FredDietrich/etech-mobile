@@ -24,7 +24,7 @@ public class ClienteFragment extends Fragment {
         binding = FragmentClienteBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
+        final TextView textView = binding.nomeUsuario;
         clienteViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
