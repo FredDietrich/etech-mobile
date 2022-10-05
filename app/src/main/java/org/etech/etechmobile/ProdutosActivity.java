@@ -34,9 +34,6 @@ public class ProdutosActivity extends AppCompatActivity {
                 R.id.navigation_produtos, R.id.navigation_carrinho, R.id.navigation_cliente)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_produtos);
-        Bundle bundle = new Bundle();
-        bundle.putInt(ARG_ID_PRODUTO, 198);
-        navController.navigate(R.id.action_navigation_produtos_to_produtoFragment, bundle);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }

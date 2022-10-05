@@ -27,7 +27,7 @@ public class ProdutosAdapter extends ArrayAdapter<Produto> {
         TextView nomeProduto = convertView.findViewById(R.id.nomeProduto);
         TextView precoProduto = convertView.findViewById(R.id.precoProduto);
         nomeProduto.setText(produto.getTitulo());
-        precoProduto.setText(Double.toString(produto.getPreco()));
+        precoProduto.setText("R$ " + String.format("%.2f", produto.getPreco()));
         return convertView;
     }
 

@@ -29,6 +29,12 @@ public class ProdutoService {
          Call<List<Produto>> call = produtoService.getProdutos();
          call.enqueue(produtoCallBack);
      }
+
+     public void getProdutoPorIdProduto(int idProduto, Callback<Produto> produtoCallback) {
+          Call<Produto> call = produtoService.getProduto(idProduto);
+          call.enqueue(produtoCallback);
+     }
+
 }
 
 interface IProdutoService {

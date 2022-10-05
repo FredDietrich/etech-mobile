@@ -31,6 +31,9 @@
         app:layout_constraintStart_toEndOf="@+id/fotoProduto"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:scrollHorizontally="true"
+        android:ellipsize="end"
+        android:maxLines="1"
         />
 
     <TextView

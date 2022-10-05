@@ -36,7 +36,7 @@ public class RetrofitFactory {
                 .addInterceptor(new BasicAuthInterceptor(usuario, senha))
                 .build();
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://b2f2-177-11-201-78.sa.ngrok.io/api/")
+                .baseUrl("https://3ee4-177-11-201-78.sa.ngrok.io/api/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build();

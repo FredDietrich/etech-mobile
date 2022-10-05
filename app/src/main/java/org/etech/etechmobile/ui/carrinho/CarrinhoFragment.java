@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,9 +24,7 @@ public class CarrinhoFragment extends Fragment {
         binding = org.etech.etechmobile.databinding.FragmentCarrinhoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // TODO: Alan: Quando ajustei o fragment_carrinho.xml quebrou aqui :(. Acho que foi por ter alterado pra ListView
-        final TextView textView = binding.listaCarrinho;
-        carrinhoViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final ListView textView = binding.listaCarrinho;
         return root;
     }
 
