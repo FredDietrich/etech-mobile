@@ -56,9 +56,10 @@
 
     <TextView
         android:id="@+id/quantidade"
-        android:layout_width="wrap_content"
+        android:layout_width="70px"
         android:layout_height="wrap_content"
         android:text="0"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:background="@color/white"

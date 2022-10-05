@@ -25,6 +25,9 @@
     <string name="titulo_produtos">Produtos</string>
     <string name="titulo_carrinho">Carrinho</string>
     <string name="titulo_cliente">Minha conta</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="listaEnderecos">
+        <item>Casa 1</item>
+        <item>Casa 2</item>
+        <item>Trabalho 1</item>
+    </string-array>
 </resources>

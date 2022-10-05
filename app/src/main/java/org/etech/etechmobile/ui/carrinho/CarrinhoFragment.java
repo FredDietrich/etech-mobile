@@ -24,7 +24,7 @@ public class CarrinhoFragment extends Fragment {
         View root = binding.getRoot();
 
         // TODO: Alan: Quando ajustei o fragment_carrinho.xml quebrou aqui :(. Acho que foi por ter alterado pra ListView
-        final TextView textView = binding.textDashboard;
+        final TextView textView = binding.listaCarrinho;
         carrinhoViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
